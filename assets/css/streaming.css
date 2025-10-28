@@ -1,0 +1,444 @@
+/* ===================================
+   OTT News Streaming Platform Styles
+   =================================== */
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #16213e;
+  --accent-color: #e94560;
+  --accent-hover: #d63651;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8b8;
+  --card-bg: #0f3460;
+  --card-hover: #1a4d7a;
+  --live-color: #ff3838;
+  --success-color: #00d9ff;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.streaming-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Header Styles */
+.streaming-header {
+  background: rgba(15, 52, 96, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid var(--accent-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.platform-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--success-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.platform-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+}
+
+/* Main Content */
+.streaming-main {
+  padding: 2rem 1.5rem;
+}
+
+/* Player Section */
+.player-section {
+  margin-bottom: 3rem;
+}
+
+.player-wrapper {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+#news-player {
+  width: 100%;
+  max-height: 70vh;
+}
+
+.player-info {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.channel-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.channel-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Channels Section */
+.channels-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 2px solid transparent;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Channel Grid */
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.channel-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.channel-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(233, 69, 96, 0.4);
+  background: var(--card-hover);
+}
+
+.channel-card.active {
+  border: 3px solid var(--accent-color);
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+}
+
+.channel-logo-wrapper {
+  position: relative;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.channel-logo {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.live-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--live-color);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 10px rgba(255, 56, 56, 0.5);
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.channel-info {
+  padding: 1.2rem;
+}
+
+.channel-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.channel-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.stream-type-badge {
+  display: inline-block;
+  background: var(--success-color);
+  color: var(--primary-color);
+  padding: 0.25rem 0.6rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Custom Stream Section */
+.custom-stream-section {
+  margin-bottom: 3rem;
+}
+
+.custom-stream-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.section-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.custom-stream-form {
+  display: grid;
+  grid-template-columns: 1fr 200px 150px;
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-input,
+.form-select {
+  padding: 0.8rem 1rem;
+  background: var(--secondary-color);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: var(--primary-color);
+}
+
+.form-select option {
+  background: var(--secondary-color);
+  color: var(--text-primary);
+}
+
+.btn-play-custom {
+  padding: 0.8rem 1.5rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-play-custom:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+/* Footer */
+.streaming-footer {
+  background: rgba(15, 52, 96, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-top: 2px solid var(--accent-color);
+  margin-top: 3rem;
+}
+
+.footer-content p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-note {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+.footer-note strong {
+  color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .custom-stream-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .channels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .platform-title {
+    font-size: 2rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .channels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .streaming-main {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-title {
+    font-size: 1.5rem;
+  }
+  
+  .channels-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-buttons {
+    width: 100%;
+  }
+  
+  .filter-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* Video.js Custom Styling */
+.video-js .vjs-big-play-button {
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 3rem;
+}
+
+.video-js .vjs-big-play-button:hover {
+  background-color: var(--accent-hover);
+}
+
+.video-js .vjs-control-bar {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+/* Loading State */
+.channel-card.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Hidden State for Filtering */
+.channel-card.hidden {
+  display: none;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ page.title | default: "Live News Streaming" }} - {{ site.title }}</title>
+  
+  <!-- Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet" />
+  
+  <!-- Custom Streaming CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/streaming.css' | relative_url }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📺</text></svg>">
+</head>
+<body>
+  <div class="streaming-container">
+    {{ content }}
+  </div>
+  
+  <!-- Video.js JavaScript -->
+  <script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+  
+  <!-- HLS.js for HLS support -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  
+  <!-- Custom Streaming JavaScript -->
+  <script src="{{ '/assets/js/streaming.js' | relative_url }}"></script>
+</body>
+</html>

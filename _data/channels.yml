@@ -1,0 +1,96 @@
+# News Channel Configuration
+# Add your live stream URLs here (HLS, RTMP, or SRT)
+
+channels:
+  - id: 1
+    name: "BBC News"
+    description: "Breaking news, analysis and debate"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/BBC_News_2019.svg/320px-BBC_News_2019.svg.png"
+    stream_url: "https://d2vnbkvjbims7j.cloudfront.net/containerA/LTN/playlist.m3u8"
+    stream_type: "hls"
+    category: "international"
+    
+  - id: 2
+    name: "Al Jazeera English"
+    description: "International news and current affairs"
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Aljazeera_eng.svg/320px-Aljazeera_eng.svg.png"
+    stream_url: "https://live-hls-web-aje.getaj.net/AJE/index.m3u8"
+    stream_type: "hls"
+    category: "international"
+    
+  - id: 3
+    name: "France 24"
+    description: "International news 24/7"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/France24.png/320px-France24.png"
+    stream_url: "https://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8"
+    stream_type: "hls"
+    category: "international"
+    
+  - id: 4
+    name: "DW News"
+    description: "Deutsche Welle - Made for minds"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Deutsche_Welle_symbol_2012.svg/320px-Deutsche_Welle_symbol_2012.svg.png"
+    stream_url: "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8"
+    stream_type: "hls"
+    category: "international"
+    
+  - id: 5
+    name: "Sky News"
+    description: "Breaking news from the UK and around the world"
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9c/Sky_News_logo.svg/320px-Sky_News_logo.svg.png"
+    stream_url: "https://siloh.pluto.tv/lilo/production/SkyNews/master.m3u8"
+    stream_type: "hls"
+    category: "international"
+    
+  - id: 6
+    name: "Bloomberg TV"
+    description: "Business and financial news"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bloomberg_Television_logo.svg/320px-Bloomberg_Television_logo.svg.png"
+    stream_url: "https://bloomberg.com/media-manifest/streams/us.m3u8"
+    stream_type: "hls"
+    category: "business"
+    
+  - id: 7
+    name: "CGTN News"
+    description: "China Global Television Network"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/320px-CGTN.svg.png"
+    stream_url: "https://news.cgtn.com/resource/live/english/cgtn-news.m3u8"
+    stream_type: "hls"
+    category: "international"
+    
+  - id: 8
+    name: "Euronews"
+    description: "European and international news"
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Euronews._2016_alternative_logo.svg/320px-Euronews._2016_alternative_logo.svg.png"
+    stream_url: "https://rakuten-euronews-1-gb.samsung.wurl.tv/manifest/playlist.m3u8"
+    stream_type: "hls"
+    category: "international"
+
+# Instructions for adding your own channels:
+# 
+# For HLS streams (.m3u8):
+#   - id: 9
+#     name: "Your Channel Name"
+#     description: "Channel description"
+#     logo: "https://example.com/logo.png"
+#     stream_url: "https://example.com/stream/playlist.m3u8"
+#     stream_type: "hls"
+#     category: "news"
+#
+# For RTMP streams:
+#   - id: 10
+#     name: "RTMP Channel"
+#     description: "RTMP stream example"
+#     logo: "https://example.com/logo.png"
+#     stream_url: "rtmp://example.com/live/stream"
+#     stream_type: "rtmp"
+#     category: "news"
+#
+# For SRT streams:
+#   - id: 11
+#     name: "SRT Channel"
+#     description: "SRT stream example"
+#     logo: "https://example.com/logo.png"
+#     stream_url: "srt://example.com:port?streamid=stream"
+#     stream_type: "srt"
+#     category: "news"

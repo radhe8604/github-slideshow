@@ -1,0 +1,120 @@
+---
+layout: streaming
+title: Live News Streaming Platform
+---
+
+<header class="streaming-header">
+  <div class="header-content">
+    <h1 class="platform-title">📺 Live News Network</h1>
+    <p class="platform-subtitle">Watch live news from around the world</p>
+  </div>
+</header>
+
+<main class="streaming-main">
+  <!-- Video Player Section -->
+  <section class="player-section">
+    <div class="player-wrapper">
+      <video 
+        id="news-player" 
+        class="video-js vjs-big-play-centered vjs-fluid" 
+        controls 
+        preload="auto"
+        data-setup='{"fluid": true, "aspectRatio": "16:9"}'>
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      
+      <div class="player-info">
+        <h2 id="current-channel-name" class="channel-name">Select a channel to start streaming</h2>
+        <p id="current-channel-description" class="channel-description"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Channel Grid Section -->
+  <section class="channels-section">
+    <div class="section-header">
+      <h2 class="section-title">Available Channels</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="international">International</button>
+        <button class="filter-btn" data-category="business">Business</button>
+        <button class="filter-btn" data-category="news">News</button>
+      </div>
+    </div>
+
+    <div class="channels-grid" id="channels-grid">
+      {% for channel in site.data.channels.channels %}
+      <div class="channel-card" 
+           data-channel-id="{{ channel.id }}"
+           data-channel-name="{{ channel.name }}"
+           data-channel-description="{{ channel.description }}"
+           data-stream-url="{{ channel.stream_url }}"
+           data-stream-type="{{ channel.stream_type }}"
+           data-category="{{ channel.category }}">
+        <div class="channel-logo-wrapper">
+          <img src="{{ channel.logo }}" alt="{{ channel.name }}" class="channel-logo" loading="lazy">
+          <div class="live-badge">
+            <span class="live-dot"></span>
+            LIVE
+          </div>
+        </div>
+        <div class="channel-info">
+          <h3 class="channel-title">{{ channel.name }}</h3>
+          <p class="channel-desc">{{ channel.description }}</p>
+          <span class="stream-type-badge">{{ channel.stream_type | upcase }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- Add Custom Stream Section -->
+  <section class="custom-stream-section">
+    <div class="custom-stream-card">
+      <h2 class="section-title">Add Custom Stream</h2>
+      <p class="section-description">Enter your own HLS, RTMP, or SRT stream URL</p>
+      
+      <form id="custom-stream-form" class="custom-stream-form">
+        <div class="form-group">
+          <label for="custom-stream-url">Stream URL</label>
+          <input 
+            type="text" 
+            id="custom-stream-url" 
+            name="stream-url" 
+            placeholder="https://example.com/stream/playlist.m3u8"
+            class="form-input"
+            required>
+        </div>
+        
+        <div class="form-group">
+          <label for="custom-stream-type">Stream Type</label>
+          <select id="custom-stream-type" name="stream-type" class="form-select">
+            <option value="hls">HLS (.m3u8)</option>
+            <option value="rtmp">RTMP</option>
+            <option value="srt">SRT</option>
+            <option value="dash">DASH (.mpd)</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="btn-play-custom">Play Stream</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="streaming-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Live News Network. All streams are provided by their respective broadcasters.</p>
+    <p class="footer-note">
+      <strong>Note:</strong> Stream availability depends on broadcaster and geographic restrictions.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Pass channel data to JavaScript
+  window.channelsData = {{ site.data.channels.channels | jsonify }};
+</script>
